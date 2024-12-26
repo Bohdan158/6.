@@ -1,0 +1,10 @@
+setInterval(() => {
+    fetch('load.php')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('animationPreview').style.animationDuration = data.duration + 's';
+        document.getElementById('animationPreview').style.color = data.color;
+        document.getElementById('animationPreview').textContent = data.text;
+    })
+    .catch(error => console.error('Error:', error));
+}, 5000); // Оновлення кожні 5 секунд
