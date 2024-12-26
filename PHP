@@ -1,0 +1,19 @@
+<?php
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $text = $_POST['text'];
+    $color = $_POST['color'];
+    $duration = $_POST['duration'];
+
+    // Створення масиву з даними
+    $data = [
+        'text' => $text,
+        'color' => $color,
+        'duration' => $duration
+    ];
+
+    // Запис у файл
+    file_put_contents('settings.json', json_encode($data));
+
+    echo "Налаштування збережено!";
+}
+?>
