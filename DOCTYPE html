@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Герой Щита - Результат анімації</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .glitch-text {
+            font-size: 2em;
+            color: #000;
+            position: relative;
+            animation: glitch-animation 1s infinite;
+        }
+
+        @keyframes glitch-animation {
+            0% { text-shadow: 2px 2px 0 rgba(0, 0, 255, 0.5), -2px -2px 0 rgba(255, 0, 255, 0.5); }
+            50% { text-shadow: -2px -2px 0 rgba(255, 0, 0, 0.5), 2px 2px 0 rgba(0, 255, 255, 0.5); }
+            100% { text-shadow: 2px 2px 0 rgba(0, 255, 0, 0.5), -2px -2px 0 rgba(255, 255, 0, 0.5); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Анімація Glitch Text</h1>
+
+    <div id="animationPreview" class="glitch-text">
+        ГлITCH ТЕКСТ
+    </div>
+
+    <script>
+        // Завантажуємо налаштування з LocalStorage
+        window.onload = function() {
+            if (localStorage.getItem('text')) {
+                document.getElementById('animationPreview').style.animationDuration = localStorage.getItem('duration') + 's';
+                document.getElementById('animationPreview').style.color = localStorage.getItem('color');
+                document.getElementById('animationPreview').textContent = localStorage.getItem('text');
+            }
+        };
+    </script>
+
+</body>
+</html>
