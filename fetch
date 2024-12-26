@@ -1,0 +1,16 @@
+function saveSettings() {
+    const text = document.getElementById('textInput').value;
+    const color = document.getElementById('colorPicker').value;
+    const duration = document.getElementById('durationInput').value;
+
+    fetch('save.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `text=${text}&color=${color}&duration=${duration}`
+    })
+    .then(response => response.text())
+    .then(data => alert(data))
+    .catch(error => console.error('Error:', error));
+}
